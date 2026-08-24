@@ -1,8 +1,13 @@
 import { useState, type FormEvent } from 'react'
-import { SITE } from '../data/content'
+import { Link } from 'react-router-dom'
+import { routes, SITE } from '../data/content'
 import { Reveal } from './Reveal'
 
-export function Contact() {
+type Props = {
+  embedded?: boolean
+}
+
+export function Contact({ embedded = false }: Props) {
   const [sent, setSent] = useState(false)
 
   function onSubmit(event: FormEvent<HTMLFormElement>) {
@@ -32,8 +37,19 @@ export function Contact() {
     <section className="section contact" id="contact" aria-labelledby="contact-heading">
       <div className="wrap contact-inner">
         <Reveal>
-          <p className="brand-sm">{SITE.brand} А.И.</p>
-          <h2 id="contact-heading">Запишитесь на консультацию</h2>
+          {embedded ? (
+            <h2 id="contact-heading" className="sr-only">
+              Контакты и форма записи
+            </h2>
+          ) : (
+            <>
+              <p className="brand-sm">
+                {SITE.brand} А.И.
+              </p>
+              <h2 id="contact-heading">Запишитесь на консультацию</h2>
+            </>
+          )}
+          {embedded ? <h3 className="inline-h3">Связь и заявка</h3> : null}
           <p className="contact-lead">
             Разберём ваш случай, снимки и план лечения. Стоимость консультации —{' '}
             {SITE.consultationPrice}&nbsp;₽.
@@ -48,6 +64,11 @@ export function Contact() {
             <span>Хирургия «под ключ»</span>
             <span>Ответ в день обращения</span>
           </div>
+          <p className="contact-links">
+            <Link to={routes.consultation}>Консультация</Link>
+            <Link to={routes.turnkey}>Под ключ</Link>
+            <Link to={routes.faq}>Вопросы</Link>
+          </p>
         </Reveal>
 
         <Reveal>

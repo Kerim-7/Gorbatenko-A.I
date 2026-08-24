@@ -31,6 +31,9 @@ export function Footer() {
             <li>
               <Link to={routes.faq}>Вопросы</Link>
             </li>
+            <li>
+              <Link to={routes.contact}>Запись</Link>
+            </li>
           </ul>
         </div>
 
@@ -42,6 +45,9 @@ export function Footer() {
             </li>
             <li>
               <Link to={routes.knee}>Хирургия колена</Link>
+            </li>
+            <li>
+              <Link to={routes.works}>Работы до и после</Link>
             </li>
             <li>
               <Link to={routes.conferences}>Конференции</Link>

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { routes, SITE } from '../data/content'
+import { PRICE, routes, SITE } from '../data/content'
 
 export function Hero() {
   return (
@@ -9,46 +9,24 @@ export function Hero() {
           <p className="hero-kicker">{SITE.brand}</p>
           <h1 id="hero-heading">Оперативное лечение нижних конечностей</h1>
           <p className="hero-lead">
-            Хирургия «под ключ»: один день в стационаре, полное сопровождение и быстрое
-            восстановление.
+            Боль, деформация стопы или травма колена — разберём случай на консультации и предложим
+            понятный план: от операции «под ключ» до восстановления.
           </p>
           <div className="hero-actions">
             <Link className="btn btn-pill btn-accent" to={routes.contact}>
               Записаться — {SITE.consultationPrice}&nbsp;₽
             </Link>
-            <Link className="btn btn-pill btn-outline-light" to={routes.services}>
-              Операции и цены
+            <Link className="btn btn-pill btn-outline-light" to={routes.feet}>
+              Хирургия стоп
+            </Link>
+            <Link className="btn btn-pill btn-outline-light" to={routes.knee}>
+              Хирургия колена
             </Link>
           </div>
-          <form
-            className="hero-search"
-            onSubmit={(e) => {
-              e.preventDefault()
-              window.location.assign(routes.contact)
-            }}
-            role="search"
-          >
-            <label className="sr-only" htmlFor="hero-q">
-              Быстрый переход
-            </label>
-            <input
-              id="hero-q"
-              name="q"
-              type="search"
-              placeholder="Стопа, колено, Hallux valgus, ПКС…"
-              list="hero-suggestions"
-            />
-            <datalist id="hero-suggestions">
-              <option value="Хирургия стоп" />
-              <option value="Hallux valgus" />
-              <option value="Артроскопия колена" />
-              <option value="Пластика ПКС" />
-              <option value="Консультация" />
-            </datalist>
-            <Link className="btn btn-pill btn-accent hero-search-btn" to={routes.contact}>
-              Запись
-            </Link>
-          </form>
+          <p className="hero-geo">
+            к.м.н., доцент · травматолог-ортопед · стопы от {PRICE.footFrom.toLocaleString('ru-RU')}
+            &nbsp;₽ · колено от {PRICE.kneeFrom.toLocaleString('ru-RU')}&nbsp;₽
+          </p>
         </div>
 
         <div className="hero-media">
@@ -64,19 +42,22 @@ export function Hero() {
 
       <div className="wrap hero-features">
         <Link className="hero-feature" to={routes.consultation}>
-          <strong>Консультация к.м.н.</strong>
+          <strong>1. Консультация</strong>
           <span>Осмотр, снимки, план лечения</span>
-          <em>Подробнее</em>
-        </Link>
-        <Link className="hero-feature" to={routes.turnkey}>
-          <strong>Операция «под ключ»</strong>
-          <span>От подготовки до восстановления</span>
           <em>Как проходит</em>
         </Link>
+        <Link className="hero-feature" to={routes.turnkey}>
+          <strong>2. Операция «под ключ»</strong>
+          <span>Полное сопровождение</span>
+          <em>Что входит</em>
+        </Link>
         <Link className="hero-feature" to={routes.services}>
-          <strong>Прозрачные цены</strong>
-          <span>Стопы от 30 000 ₽ · колено от 40 000 ₽</span>
-          <em>Смотреть цены</em>
+          <strong>3. Прозрачные цены</strong>
+          <span>
+            Стопы от {PRICE.footFrom.toLocaleString('ru-RU')}&nbsp;₽ · колено от{' '}
+            {PRICE.kneeFrom.toLocaleString('ru-RU')}&nbsp;₽
+          </span>
+          <em>Смотреть прайс</em>
         </Link>
       </div>
     </section>

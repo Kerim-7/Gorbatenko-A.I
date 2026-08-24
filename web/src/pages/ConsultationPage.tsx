@@ -1,19 +1,30 @@
 import { Consultation } from '../components/Consultation'
+import {
+  funnelAfterConsult,
+  NextSteps,
+} from '../components/NextSteps'
 import { PageHero } from '../components/PageHero'
 import { Seo } from '../components/Seo'
-import { pageSeo, SITE } from '../data/content'
+import { SeoArticle } from '../components/SeoArticle'
+import { pageSeo, routes, SITE } from '../data/content'
+import { seoArticles } from '../data/seoArticles'
 
 export function ConsultationPage() {
   return (
     <>
       <Seo page={pageSeo.consultation} />
       <PageHero
+        compact
         title="Консультация"
-        lead={`Разбор случая и план лечения. Стоимость — ${SITE.consultationPrice} ₽.`}
-        image="/images/image6.jpeg"
-        imageAlt="Консультация доктора Горбатенко"
+        lead={`Осмотр, разбор снимков и план лечения. Стоимость — ${SITE.consultationPrice} ₽.`}
+        primaryTo={routes.contact}
+        primaryLabel="Записаться"
+        secondaryTo={routes.turnkey}
+        secondaryLabel="Операция «под ключ»"
       />
-      <Consultation />
+      <Consultation embedded />
+      <SeoArticle article={seoArticles.consultation} />
+      <NextSteps steps={funnelAfterConsult} />
     </>
   )
 }

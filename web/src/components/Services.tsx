@@ -1,18 +1,32 @@
-import { footPrices, kneePrices } from '../data/content'
+import { Link } from 'react-router-dom'
+import { footPrices, kneePrices, PRICE, routes } from '../data/content'
 import { Reveal } from './Reveal'
 
-export function Services() {
+type Props = {
+  showHeading?: boolean
+}
+
+export function Services({ showHeading = true }: Props) {
   return (
     <section className="section services" id="services" aria-labelledby="services-heading">
       <div className="wrap">
-        <header className="section-head">
-          <h2 id="services-heading">Оперативное лечение нижних конечностей</h2>
-          <p>Прозрачные цены на хирургию стоп и коленных суставов</p>
-        </header>
+        {showHeading ? (
+          <header className="section-head">
+            <h2 id="services-heading">Цены на операции</h2>
+            <p>Ориентиры по направлениям. Итоговая стоимость — после консультации</p>
+          </header>
+        ) : (
+          <h2 id="services-heading" className="sr-only">
+            Цены на операции
+          </h2>
+        )}
 
         <div className="price-columns">
           <Reveal as="article" className="price-block">
-            <h3>Хирургия стоп</h3>
+            <div className="price-block-head">
+              <h3>Хирургия стоп</h3>
+              <Link to={routes.feet}>Подробнее</Link>
+            </div>
             <ul>
               {footPrices.map((item) => (
                 <li key={item.name}>
@@ -21,11 +35,14 @@ export function Services() {
                 </li>
               ))}
             </ul>
-            <p className="price-from">от 30&nbsp;000&nbsp;₽</p>
+            <p className="price-from">от {PRICE.footFrom.toLocaleString('ru-RU')}&nbsp;₽</p>
           </Reveal>
 
           <Reveal as="article" className="price-block">
-            <h3>Хирургия коленных суставов</h3>
+            <div className="price-block-head">
+              <h3>Хирургия коленных суставов</h3>
+              <Link to={routes.knee}>Подробнее</Link>
+            </div>
             <ul>
               {kneePrices.map((item) => (
                 <li key={item.name}>
@@ -34,7 +51,7 @@ export function Services() {
                 </li>
               ))}
             </ul>
-            <p className="price-from">от 40&nbsp;000&nbsp;₽</p>
+            <p className="price-from">от {PRICE.kneeFrom.toLocaleString('ru-RU')}&nbsp;₽</p>
           </Reveal>
         </div>
       </div>

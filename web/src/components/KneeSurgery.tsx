@@ -1,37 +1,60 @@
-import { kneeIndications, kneeOperations } from '../data/content'
+import { Link } from 'react-router-dom'
+import { kneeIndications, kneeOperations, PRICE, routes } from '../data/content'
 import { Reveal } from './Reveal'
 
-export function KneeSurgery() {
+type Props = {
+  embedded?: boolean
+}
+
+export function KneeSurgery({ embedded = false }: Props) {
   return (
     <section className="section knee" id="knee" aria-labelledby="knee-heading">
       <div className="wrap">
-        <Reveal className="section-head">
-          <h2 id="knee-heading">Хирургия коленного сустава</h2>
-          <p>У взрослых и детей — от диагностики до пластики связок</p>
-        </Reveal>
+        {embedded ? (
+          <h2 id="knee-heading" className="sr-only">
+            Показания и виды операций на колене
+          </h2>
+        ) : (
+          <Reveal className="section-head">
+            <h2 id="knee-heading">Хирургия коленного сустава</h2>
+            <p>У взрослых и детей — от диагностики до пластики связок</p>
+          </Reveal>
+        )}
 
         <Reveal className="indications reverse">
           <div className="indications-visual">
             <img
               src="/images/image18.jpeg"
-              alt="Работа с коленным суставом"
+              alt="Артроскопия коленного сустава и хирургия колена — доктор Горбатенко"
               width={960}
               height={1280}
               loading="lazy"
             />
-            <p className="badge-price">операция от 40&nbsp;000&nbsp;₽</p>
+            <p className="badge-price">
+              от {PRICE.kneeFrom.toLocaleString('ru-RU')}&nbsp;₽
+            </p>
           </div>
-          <ul className="dense-list">
-            {kneeIndications.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
+          <div>
+            <h3 className="inline-h3">Когда показана операция</h3>
+            <ul className="dense-list">
+              {kneeIndications.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+            <p className="sibling-link">
+              Также принимаю по <Link to={routes.feet}>хирургии стоп</Link>
+            </p>
+          </div>
         </Reveal>
 
         <Reveal className="ops-block">
           <div className="ops-copy">
             <h3>Виды операций на колене</h3>
-            <p className="ops-price">от 30&nbsp;000&nbsp;₽</p>
+            <p className="ops-price">
+              диагностическая артроскопия от{' '}
+              {PRICE.kneeArthroscopyFrom.toLocaleString('ru-RU')}&nbsp;₽ · операции от{' '}
+              {PRICE.kneeFrom.toLocaleString('ru-RU')}&nbsp;₽
+            </p>
             <ul className="ops-grid">
               {kneeOperations.map((item) => (
                 <li key={item}>{item}</li>
@@ -41,14 +64,14 @@ export function KneeSurgery() {
           <figure className="gallery">
             <img
               src="/images/image20.jpeg"
-              alt="Клинический снимок коленного сустава"
+              alt="Клинический снимок после артроскопии колена"
               width={712}
               height={475}
               loading="lazy"
             />
             <img
               src="/images/image21.jpeg"
-              alt="Результат лечения коленного сустава"
+              alt="Результат операции на коленном суставе пластика связок"
               width={960}
               height={693}
               loading="lazy"

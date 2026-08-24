@@ -1,19 +1,25 @@
 import { Contact } from '../components/Contact'
 import { PageHero } from '../components/PageHero'
 import { Seo } from '../components/Seo'
-import { pageSeo, SITE } from '../data/content'
+import { SeoArticle } from '../components/SeoArticle'
+import { pageSeo, routes, SITE } from '../data/content'
+import { seoArticles } from '../data/seoArticles'
 
 export function ContactPage() {
   return (
     <>
-      <Seo page={pageSeo.contact} />
+      <Seo page={pageSeo.contact} includePhysicianSchema />
       <PageHero
+        compact
         title="Запись на консультацию"
-        lead={`Стоимость консультации — ${SITE.consultationPrice} ₽. Ответим и подберём время.`}
-        image="/images/image1.jpeg"
-        imageAlt="Доктор Горбатенко"
+        lead={`Стоимость — ${SITE.consultationPrice} ₽. Ответим и подберём время.`}
+        primaryTo={routes.consultation}
+        primaryLabel="Что входит в приём"
+        secondaryTo={routes.services}
+        secondaryLabel="Цены"
       />
-      <Contact />
+      <Contact embedded />
+      <SeoArticle article={seoArticles.contact} />
     </>
   )
 }

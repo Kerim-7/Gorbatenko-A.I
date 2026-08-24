@@ -1,19 +1,27 @@
 import { Faq } from '../components/Faq'
+import {
+  funnelAfterFaq,
+  NextSteps,
+} from '../components/NextSteps'
 import { PageHero } from '../components/PageHero'
 import { Seo } from '../components/Seo'
-import { pageSeo } from '../data/content'
+import { pageSeo, routes } from '../data/content'
 
 export function FaqPage() {
   return (
     <>
       <Seo page={pageSeo.faq} includeFaqSchema />
       <PageHero
+        compact
         title="Частые вопросы"
-        lead="О консультации, операции «под ключ» и записи на приём."
-        image="/images/image6.jpeg"
-        imageAlt="Консультация пациента"
+        lead="Консультация, «под ключ», стопы и колено, цены, география и восстановление."
+        primaryTo={routes.contact}
+        primaryLabel="Записаться"
+        secondaryTo={routes.services}
+        secondaryLabel="Цены"
       />
-      <Faq />
+      <Faq embedded />
+      <NextSteps steps={funnelAfterFaq} />
     </>
   )
 }

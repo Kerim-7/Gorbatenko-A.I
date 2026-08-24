@@ -2,17 +2,6 @@ import { useEffect, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { nav, routes, SITE } from '../data/content'
 
-const utility = [
-  { href: routes.faq, label: 'Вопросы' },
-  { href: routes.conferences, label: 'Конференции' },
-  { href: `tel:${SITE.phones.primaryTel}`, label: 'Связаться', external: true },
-  {
-    href: `https://wa.me/${SITE.whatsapp}`,
-    label: 'WhatsApp',
-    external: true,
-  },
-]
-
 export function Header() {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
@@ -36,26 +25,18 @@ export function Header() {
       <div className="utility-bar">
         <div className="wrap utility-inner">
           <p className="utility-note">
-            Хирургия стоп и колена «под ключ» · запись на консультацию
+            Хирургия стоп и колена «под ключ» · {SITE.cities.slice(0, 2).join(', ')}
           </p>
-          <nav className="utility-nav" aria-label="Дополнительная навигация">
-            {utility.map((item) =>
-              item.external ? (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  {...(item.href.startsWith('http')
-                    ? { target: '_blank', rel: 'noopener noreferrer' }
-                    : {})}
-                >
-                  {item.label}
-                </a>
-              ) : (
-                <Link key={item.label} to={item.href} onClick={() => setOpen(false)}>
-                  {item.label}
-                </Link>
-              ),
-            )}
+          <nav className="utility-nav" aria-label="Контакты">
+            <Link to={routes.conferences}>Конференции</Link>
+            <a href={`tel:${SITE.phones.primaryTel}`}>{SITE.phones.primaryDisplay}</a>
+            <a
+              href={`https://wa.me/${SITE.whatsapp}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              WhatsApp
+            </a>
           </nav>
         </div>
       </div>
