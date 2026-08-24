@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://gorbatenko-orto.ru/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://gorbatenko-orto.ru/uslugi</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://gorbatenko-orto.ru/konsultaciya</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://gorbatenko-orto.ru/pod-kluch</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://gorbatenko-orto.ru/hirurgiya-stop</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://gorbatenko-orto.ru/hirurgiya-kolena</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://gorbatenko-orto.ru/konferencii</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://gorbatenko-orto.ru/voprosy</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://gorbatenko-orto.ru/zapis</loc><changefreq>weekly</changefreq><priority>0.95</priority></url>
+</urlset>

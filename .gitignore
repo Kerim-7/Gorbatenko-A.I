@@ -1,0 +1,21 @@
+# Dependencies & build
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Env
+.env
+.env.*.local
+
+# Python / extract
+.venv/
+pptx_extract/
+
+# OS / IDE
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.log
+npm-debug.log*
