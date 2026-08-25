@@ -16,7 +16,7 @@ export const SITE = {
   name: 'Доктор Горбатенко Андрей Иванович',
   shortName: 'Горбатенко А.И.',
   brand: 'Доктор Горбатенко',
-  url: import.meta.env.VITE_SITE_URL || 'https://gorbatenko-orto.ru',
+  url: import.meta.env.VITE_SITE_URL || 'https://горбатенко-ортопед.рф',
   locale: 'ru_RU',
   phones: {
     primaryDisplay: '8-906-18-16-117',

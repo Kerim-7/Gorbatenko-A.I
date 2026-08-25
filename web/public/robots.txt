@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://gorbatenko-orto.ru/sitemap.xml
+Sitemap: https://горбатенко-ортопед.рф/sitemap.xml
