@@ -4,7 +4,7 @@ export type WorkCase = {
   alt: string
   title: string
   caption: string
-  tag: 'foot' | 'flatfoot' | 'implant' | 'xray'
+  tag: 'foot' | 'flatfoot' | 'implant' | 'xray' | 'knee'
   featured?: boolean
   year?: string
 }
@@ -289,6 +289,39 @@ export const workCases: WorkCase[] = [
     title: 'Клинический архив',
     caption: 'Результат лечения',
     tag: 'foot',
+  },
+  {
+    id: 'knee-arthroscopy',
+    src: '/images/image18.jpeg',
+    alt: 'Артроскопия коленного сустава',
+    title: 'Артроскопия колена',
+    caption: 'Малоинвазивная хирургия коленного сустава',
+    tag: 'knee',
+    featured: true,
+  },
+  {
+    id: 'knee-result-a',
+    src: '/images/image20.jpeg',
+    alt: 'Клинический снимок после артроскопии колена',
+    title: 'После артроскопии',
+    caption: 'Клинический результат',
+    tag: 'knee',
+  },
+  {
+    id: 'knee-result-b',
+    src: '/images/image21.jpeg',
+    alt: 'Результат операции на коленном суставе, пластика связок',
+    title: 'Пластика связок',
+    caption: 'Операция на коленном суставе',
+    tag: 'knee',
+  },
+  {
+    id: 'knee-clinic',
+    src: '/images/image19.jpeg',
+    alt: 'Хирургия коленного сустава — клинический случай',
+    title: 'Хирургия колена',
+    caption: 'Клинический случай',
+    tag: 'knee',
   },
 ]
 

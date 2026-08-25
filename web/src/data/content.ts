@@ -393,13 +393,11 @@ export const faq = [
 ] as const
 
 export const nav = [
-  { href: '/hirurgiya-stop', label: 'Стопы' },
-  { href: '/hirurgiya-kolena', label: 'Колено' },
-  { href: '/raboty', label: 'Работы' },
   { href: '/konsultaciya', label: 'Консультация' },
   { href: '/pod-kluch', label: 'Под ключ' },
   { href: '/uslugi', label: 'Цены' },
-  { href: '/voprosy', label: 'Вопросы' },
+  { href: '/raboty', label: 'Работы' },
+  { href: '/konferencii', label: 'Конференции' },
   { href: '/zapis', label: 'Запись', cta: true },
 ] as const
 

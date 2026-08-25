@@ -3,7 +3,6 @@ import { footIndications, footOperations, PRICE, routes } from '../data/content'
 import { Reveal } from './Reveal'
 
 type Props = {
-  /** Hide repeating H2 when page already has PageHero */
   embedded?: boolean
 }
 
@@ -17,6 +16,7 @@ export function FeetSurgery({ embedded = false }: Props) {
           </h2>
         ) : (
           <Reveal className="section-head">
+            <p className="kicker">Стопа</p>
             <h2 id="feet-heading">Хирургия стоп у взрослых и детей</h2>
             <p>Показания к операции — от статических деформаций до последствий травм</p>
           </Reveal>
@@ -36,7 +36,7 @@ export function FeetSurgery({ embedded = false }: Props) {
             </p>
           </div>
           <div>
-            <h3 className="inline-h3">Когда показана операция</h3>
+            <h3 className="inline-h3">Когда нужна операция</h3>
             <ul className="dense-list">
               {footIndications.map((item) => (
                 <li key={item}>{item}</li>
@@ -63,10 +63,9 @@ export function FeetSurgery({ embedded = false }: Props) {
           </div>
           <figure className="before-after">
             <div className="ba-pair">
-              <img src="/images/image15.jpeg" alt="Стопа до операции Hallux valgus" width={348} height={292} loading="lazy" />
-              <img src="/images/image16.jpeg" alt="Стопа после операции косточки на стопе" width={1280} height={958} loading="lazy" />
+              <img src="/images/image15.jpeg" alt="Стопа до операции Hallux valgus" loading="lazy" />
+              <img src="/images/image16.jpeg" alt="Стопа после операции косточки на стопе" loading="lazy" />
             </div>
-            <figcaption>До и после операции</figcaption>
           </figure>
         </Reveal>
       </div>

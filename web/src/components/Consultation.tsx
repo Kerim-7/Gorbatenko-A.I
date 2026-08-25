@@ -30,7 +30,9 @@ export function Consultation({ embedded = false, showImage = true }: Props) {
           ) : (
             <h2 id="consultation-heading">Консультация доктора включает</h2>
           )}
-          {embedded ? <h3 className="inline-h3">Что входит в приём</h3> : null}
+          {embedded ? (
+            <h3 className="inline-h3">Что входит в консультацию</h3>
+          ) : null}
           <ul className="check-list">
             {consultationItems.map((item) => (
               <li key={item}>{item}</li>

@@ -5,11 +5,11 @@ export function TrustBar() {
     <section className="section glance" aria-labelledby="glance-heading">
       <div className="wrap">
         <h2 id="glance-heading" className="glance-title">
-          О практике кратко
+          Практика кратко
         </h2>
         <div className="glance-grid">
           <article>
-            <h3>к.м.н.</h3>
+            <h3>Кандидат мед. наук</h3>
             <p>доцент, травматолог-ортопед, хирург, подолог</p>
           </article>
           <article>

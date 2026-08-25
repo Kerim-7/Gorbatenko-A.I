@@ -1,7 +1,4 @@
-import {
-  funnelAfterDirection,
-  NextSteps,
-} from '../components/NextSteps'
+import { CtaBand } from '../components/CtaBand'
 import { PageHero } from '../components/PageHero'
 import { Seo } from '../components/Seo'
 import { Works } from '../components/Works'
@@ -14,17 +11,14 @@ export function WorksPage() {
       <PageHero
         compact
         title="Работы до и после"
-        lead="Клинические результаты хирургии стоп: деформации, плоскостопие, Hallux valgus."
+        lead="Клинические результаты хирургии стоп и колена: деформации, плоскостопие, Hallux valgus, артроскопия."
         primaryTo={routes.contact}
         primaryLabel="Записаться"
-        secondaryTo={routes.feet}
-        secondaryLabel="Хирургия стоп"
+        showSecondary={false}
+        showBreadcrumbs={false}
       />
       <Works embedded />
-      <NextSteps
-        title="Хотите похожий результат?"
-        steps={funnelAfterDirection}
-      />
+      <CtaBand />
     </>
   )
 }

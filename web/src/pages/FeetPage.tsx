@@ -1,3 +1,4 @@
+import { CtaBand } from '../components/CtaBand'
 import { FeetSurgery } from '../components/FeetSurgery'
 import {
   funnelAfterDirection,
@@ -21,10 +22,12 @@ export function FeetPage() {
         primaryLabel="Записаться"
         secondaryTo={routes.services}
         secondaryLabel="Цены"
+        showBreadcrumbs={false}
       />
       <FeetSurgery embedded />
       <SeoArticle article={seoArticles.feet} />
       <NextSteps steps={funnelAfterDirection} />
+      <CtaBand />
     </>
   )
 }

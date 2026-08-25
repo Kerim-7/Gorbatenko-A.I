@@ -1,8 +1,5 @@
 import { Conferences } from '../components/Conferences'
-import {
-  funnelAfterConferences,
-  NextSteps,
-} from '../components/NextSteps'
+import { CtaBand } from '../components/CtaBand'
 import { PageHero } from '../components/PageHero'
 import { Seo } from '../components/Seo'
 import { pageSeo, routes } from '../data/content'
@@ -17,14 +14,11 @@ export function ConferencesPage() {
         lead="Профильные форумы по ортопедии, хирургии стопы и ортобиологии."
         primaryTo={routes.contact}
         primaryLabel="Записаться"
-        secondaryTo={routes.home}
-        secondaryLabel="На главную"
+        showSecondary={false}
+        showBreadcrumbs={false}
       />
       <Conferences embedded />
-      <NextSteps
-        title="От науки к практике"
-        steps={funnelAfterConferences}
-      />
+      <CtaBand />
     </>
   )
 }

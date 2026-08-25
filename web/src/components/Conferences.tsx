@@ -15,6 +15,7 @@ export function Conferences({ embedded = false }: Props) {
           </h2>
         ) : (
           <Reveal className="section-head">
+            <p className="kicker">Наука</p>
             <h2 id="conferences-heading">Конференции и конгрессы</h2>
             <p>
               Регулярное участие в профильных форумах по ортопедии, хирургии стопы и ортобиологии
@@ -22,26 +23,28 @@ export function Conferences({ embedded = false }: Props) {
           </Reveal>
         )}
 
-        <Reveal as="ul" className="conf-timeline">
-          {conferences.map((item) => (
-            <li key={`${item.year}-${item.title}`}>
-              <time dateTime={item.year}>{item.year}</time>
-              <div>
-                <strong>{item.title}</strong>
-                <span>{item.detail}</span>
-              </div>
-            </li>
-          ))}
-        </Reveal>
+        <div className="conf-layout">
+          <Reveal as="ul" className="conf-timeline">
+            {conferences.map((item) => (
+              <li key={`${item.year}-${item.title}`}>
+                <time dateTime={item.year}>{item.year}</time>
+                <div>
+                  <strong>{item.title}</strong>
+                  <span>{item.detail}</span>
+                </div>
+              </li>
+            ))}
+          </Reveal>
 
-        <Reveal className="conf-mosaic">
-          {conferencePhotos.map((photo) => (
-            <figure className="conf-shot" key={photo.src}>
-              <img src={photo.src} alt={photo.alt} loading="lazy" />
-              <figcaption>{photo.caption}</figcaption>
-            </figure>
-          ))}
-        </Reveal>
+          <Reveal className="conf-mosaic">
+            {conferencePhotos.map((photo) => (
+              <figure className="conf-shot" key={photo.src}>
+                <img src={photo.src} alt={photo.alt} loading="lazy" />
+                <figcaption>{photo.caption}</figcaption>
+              </figure>
+            ))}
+          </Reveal>
+        </div>
       </div>
     </section>
   )

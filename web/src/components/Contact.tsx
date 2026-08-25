@@ -43,13 +43,16 @@ export function Contact({ embedded = false }: Props) {
             </h2>
           ) : (
             <>
-              <p className="brand-sm">
-                {SITE.brand} А.И.
-              </p>
+              <p className="kicker">Контакты</p>
               <h2 id="contact-heading">Запишитесь на консультацию</h2>
             </>
           )}
-          {embedded ? <h3 className="inline-h3">Связь и заявка</h3> : null}
+          {embedded ? (
+            <>
+              <p className="kicker">Контакты</p>
+              <h3 className="inline-h3">Связь и заявка</h3>
+            </>
+          ) : null}
           <p className="contact-lead">
             Разберём ваш случай, снимки и план лечения. Стоимость консультации —{' '}
             {SITE.consultationPrice}&nbsp;₽.
@@ -73,6 +76,8 @@ export function Contact({ embedded = false }: Props) {
 
         <Reveal>
           <form className="contact-form" onSubmit={onSubmit} noValidate={false}>
+            <p className="kicker">Заявка</p>
+            <h3 className="inline-h3">Написать в WhatsApp</h3>
             <label>
               Имя
               <input
@@ -91,7 +96,7 @@ export function Contact({ embedded = false }: Props) {
               Кратко о проблеме
               <textarea
                 name="message"
-                rows={3}
+                rows={4}
                 placeholder="Стопа, колено, есть ли снимки…"
               />
             </label>

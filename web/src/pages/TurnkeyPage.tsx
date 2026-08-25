@@ -1,3 +1,4 @@
+import { CtaBand } from '../components/CtaBand'
 import {
   funnelAfterTurnkey,
   NextSteps,
@@ -16,15 +17,17 @@ export function TurnkeyPage() {
       <PageHero
         compact
         title="Операция «под ключ»"
-        lead="От подготовки до восстановления — полное сопровождение."
+        lead="От подготовки до восстановления — полное сопровождение без скрытых доплат за бригаду, палату и материалы."
         primaryTo={routes.contact}
         primaryLabel="Узнать стоимость"
         secondaryTo={routes.consultation}
         secondaryLabel="Сначала консультация"
+        showBreadcrumbs={false}
       />
       <Turnkey embedded />
       <SeoArticle article={seoArticles.turnkey} />
       <NextSteps steps={funnelAfterTurnkey} />
+      <CtaBand />
     </>
   )
 }

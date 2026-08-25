@@ -7,7 +7,7 @@ export function Directions() {
     <section className="section directions" aria-labelledby="directions-heading">
       <div className="wrap">
         <Reveal className="section-head">
-          <h2 id="directions-heading">Направления лечения</h2>
+          <h2 id="directions-heading">Стопы и колено</h2>
           <p>Выберите проблему — разберём показания, виды операций и следующий шаг</p>
         </Reveal>
         <div className="directions-grid">

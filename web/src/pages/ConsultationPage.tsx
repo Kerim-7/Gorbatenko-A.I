@@ -1,4 +1,5 @@
 import { Consultation } from '../components/Consultation'
+import { CtaBand } from '../components/CtaBand'
 import {
   funnelAfterConsult,
   NextSteps,
@@ -21,10 +22,12 @@ export function ConsultationPage() {
         primaryLabel="Записаться"
         secondaryTo={routes.turnkey}
         secondaryLabel="Операция «под ключ»"
+        showBreadcrumbs={false}
       />
       <Consultation embedded />
       <SeoArticle article={seoArticles.consultation} />
       <NextSteps steps={funnelAfterConsult} />
+      <CtaBand />
     </>
   )
 }

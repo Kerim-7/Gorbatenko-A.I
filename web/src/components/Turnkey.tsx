@@ -31,7 +31,7 @@ export function Turnkey({ embedded = false, showImage = true }: Props) {
             <h2 id="turnkey-heading">Операция «под ключ»</h2>
           )}
           {embedded ? (
-            <h3 className="inline-h3">Что входит в пакет</h3>
+            <h3 className="inline-h3">Что входит в сопровождение</h3>
           ) : (
             <p className="section-lead">Полный цикл — от подготовки до восстановления.</p>
           )}

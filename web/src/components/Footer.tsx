@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { routes, SITE } from '../data/content'
+import { Logo } from './Logo'
 
 export function Footer() {
   const year = new Date().getFullYear()
@@ -8,15 +9,16 @@ export function Footer() {
     <footer className="site-footer">
       <div className="wrap footer-grid">
         <div className="footer-brand">
-          <Link className="logo logo-light" to={routes.home}>
-            Горбатенко
+          <Link to={routes.home} aria-label={SITE.shortName}>
+            <Logo light />
           </Link>
           <p>
-            Оперативное лечение нижних конечностей. Хирургия стоп и коленных суставов «под ключ».
+            Оперативное лечение нижних конечностей. Хирургия стоп и коленных суставов «под ключ»
+            у к.м.н. Горбатенко А.И.
           </p>
         </div>
 
-        <div>
+        <div className="footer-nav">
           <h3>Пациентам</h3>
           <ul>
             <li>
@@ -37,7 +39,7 @@ export function Footer() {
           </ul>
         </div>
 
-        <div>
+        <div className="footer-nav">
           <h3>Направления</h3>
           <ul>
             <li>
@@ -55,7 +57,7 @@ export function Footer() {
           </ul>
         </div>
 
-        <div>
+        <div className="footer-contacts">
           <h3>Контакты</h3>
           <ul>
             <li>
@@ -78,11 +80,21 @@ export function Footer() {
 
       <div className="wrap footer-bottom">
         <p>
-          © {year} {SITE.name}
+          © {year} Доктор {SITE.shortName}
         </p>
-        <Link className="btn btn-pill btn-accent" to={routes.contact}>
-          Записаться на приём
-        </Link>
+        <div className="footer-bottom-actions">
+          <div className="footer-primary-align">
+            <span className="btn btn-pill btn-accent footer-align-ghost" aria-hidden="true">
+              Записаться
+            </span>
+            <Link className="btn btn-pill btn-accent" to={routes.contact}>
+              Записаться на приём
+            </Link>
+          </div>
+          <span className="btn btn-pill btn-outline-light footer-actions-spacer" aria-hidden="true">
+            {SITE.phones.primaryDisplay}
+          </span>
+        </div>
       </div>
     </footer>
   )

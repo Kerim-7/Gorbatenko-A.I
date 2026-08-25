@@ -1,3 +1,4 @@
+import { CtaBand } from '../components/CtaBand'
 import {
   funnelAfterPrices,
   NextSteps,
@@ -21,10 +22,12 @@ export function ServicesPage() {
         primaryLabel="Записаться"
         secondaryTo={routes.consultation}
         secondaryLabel="О консультации"
+        showBreadcrumbs={false}
       />
       <Services showHeading={false} />
       <SeoArticle article={seoArticles.services} />
       <NextSteps steps={funnelAfterPrices} />
+      <CtaBand />
     </>
   )
 }

@@ -12,6 +12,39 @@ type Props = {
   steps: NextStep[]
 }
 
+const stepImages: Partial<Record<string, string>> = {
+  [routes.consultation]: '/images/image6.jpeg',
+  [routes.services]: '/images/image1.jpeg',
+  [routes.contact]: '/images/image9.jpeg',
+  [routes.feet]: '/images/image13.jpeg',
+  [routes.knee]: '/images/image18.jpeg',
+  [routes.turnkey]: '/images/image7.jpeg',
+  [routes.works]: '/images/image6.jpeg',
+  [routes.conferences]: '/images/image1.jpeg',
+}
+
+const stepCta: Partial<Record<string, string>> = {
+  [routes.contact]: 'Записаться',
+  [routes.services]: 'Смотреть прайс',
+  [routes.consultation]: 'Что входит',
+  [routes.turnkey]: 'Состав пакета',
+  [routes.feet]: 'Подробнее о стопах',
+  [routes.knee]: 'Подробнее о колене',
+  [routes.works]: 'Смотреть работы',
+  [routes.conferences]: 'Конференции',
+}
+
+function ArrowIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+      <path
+        d="M15.346 16.154 14.277 15.1l2.35-2.35H4.5v-1.5h12.127L14.292 8.9l1.054-1.054L20.4 12.5l-5.054 3.654Z"
+        fill="currentColor"
+      />
+    </svg>
+  )
+}
+
 export function NextSteps({
   title = 'Что дальше',
   steps,
@@ -24,11 +57,28 @@ export function NextSteps({
           <p>Логичный путь пациента: от разбора случая до операции и записи</p>
         </header>
         <div className="next-steps-grid">
-          {steps.map((step, index) => (
-            <Link key={step.to} className="next-step-card" to={step.to}>
-              <span className="next-step-num">{index + 1}</span>
-              <strong>{step.title}</strong>
-              <span>{step.text}</span>
+          {steps.map((step) => (
+            <Link key={`${step.to}-${step.title}`} className="location-card next-step-card" to={step.to}>
+              <div className="location-card-media">
+                <img
+                  src={stepImages[step.to] ?? '/images/image6.jpeg'}
+                  alt=""
+                  loading="lazy"
+                />
+              </div>
+
+              <div className="location-card-body">
+                <div className="location-card-head">
+                  <strong className="location-card-title">{step.title}</strong>
+                </div>
+
+                <p className="location-card-text">{step.text}</p>
+
+                <span className="location-card-link">
+                  {stepCta[step.to] ?? 'Подробнее'}
+                  <ArrowIcon />
+                </span>
+              </div>
             </Link>
           ))}
         </div>

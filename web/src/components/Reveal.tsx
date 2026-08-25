@@ -3,6 +3,7 @@ import {
   useEffect,
   useRef,
   type ElementType,
+  type HTMLAttributes,
   type ReactNode,
 } from 'react'
 
@@ -10,9 +11,12 @@ type Props = {
   children: ReactNode
   className?: string
   as?: ElementType
-}
+  /** Accordion grouping for `<details>` */
+  name?: string
+  open?: boolean
+} & HTMLAttributes<HTMLElement>
 
-export function Reveal({ children, className = '', as = 'div' }: Props) {
+export function Reveal({ children, className = '', as = 'div', ...rest }: Props) {
   const ref = useRef<HTMLElement | null>(null)
 
   useEffect(() => {
@@ -42,7 +46,7 @@ export function Reveal({ children, className = '', as = 'div' }: Props) {
 
   return createElement(
     as,
-    { ref, className: `reveal ${className}`.trim() },
+    { ref, className: `reveal ${className}`.trim(), ...rest },
     children,
   )
 }

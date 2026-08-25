@@ -10,6 +10,7 @@ export function WorksTeaser() {
     <section className="section works-teaser" aria-labelledby="works-teaser-heading">
       <div className="wrap">
         <Reveal className="section-head">
+          <p className="kicker">Результаты</p>
           <h2 id="works-teaser-heading">Работы до и после</h2>
           <p>Реальные клинические результаты хирургии стоп</p>
         </Reveal>

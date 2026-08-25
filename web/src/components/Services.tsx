@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { footPrices, kneePrices, PRICE, routes } from '../data/content'
+import { footPrices, kneePrices, PRICE, routes, SITE } from '../data/content'
 import { Reveal } from './Reveal'
 
 type Props = {
@@ -12,6 +12,7 @@ export function Services({ showHeading = true }: Props) {
       <div className="wrap">
         {showHeading ? (
           <header className="section-head">
+            <p className="kicker">Прайс</p>
             <h2 id="services-heading">Цены на операции</h2>
             <p>Ориентиры по направлениям. Итоговая стоимость — после консультации</p>
           </header>
@@ -20,6 +21,17 @@ export function Services({ showHeading = true }: Props) {
             Цены на операции
           </h2>
         )}
+
+        <Reveal className="price-consult">
+          <div>
+            <h3>Консультация ортопеда</h3>
+            <p>Осмотр, разбор снимков и план лечения</p>
+          </div>
+          <strong>{SITE.consultationPrice.toLocaleString('ru-RU')}&nbsp;₽</strong>
+          <Link className="btn btn-pill btn-outline" to={routes.contact}>
+            Записаться
+          </Link>
+        </Reveal>
 
         <div className="price-columns">
           <Reveal as="article" className="price-block">

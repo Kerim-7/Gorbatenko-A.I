@@ -16,6 +16,7 @@ export function KneeSurgery({ embedded = false }: Props) {
           </h2>
         ) : (
           <Reveal className="section-head">
+            <p className="kicker">Коленный сустав</p>
             <h2 id="knee-heading">Хирургия коленного сустава</h2>
             <p>У взрослых и детей — от диагностики до пластики связок</p>
           </Reveal>
@@ -35,7 +36,7 @@ export function KneeSurgery({ embedded = false }: Props) {
             </p>
           </div>
           <div>
-            <h3 className="inline-h3">Когда показана операция</h3>
+            <h3 className="inline-h3">Когда нужна операция</h3>
             <ul className="dense-list">
               {kneeIndications.map((item) => (
                 <li key={item}>{item}</li>
