@@ -44,7 +44,8 @@ export function FeetSurgery({ embedded = false }: Props) {
             </ul>
             <p className="sibling-link">
               Также принимаю по{' '}
-              <Link to={routes.knee}>хирургии коленного сустава</Link>
+              <Link to={routes.upperLimb}>хирургии верхних конечностей</Link> и{' '}
+              <Link to={routes.knee}>коленного сустава</Link>
             </p>
           </div>
         </Reveal>

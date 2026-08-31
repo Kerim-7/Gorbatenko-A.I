@@ -9,18 +9,22 @@ import {
   footIndications,
   footOperations,
   footPrices,
+  formatConsultationPrices,
   kneeIndications,
   kneeOperations,
   kneePrices,
   pageSeo,
   routes,
   turnkeyItems,
+  upperLimbIndications,
+  upperLimbOperations,
 } from './content'
 
 export type SearchCategory =
   | 'Страница'
   | 'Стопы'
   | 'Колено'
+  | 'Верхние конечности'
   | 'Цены'
   | 'Консультация'
   | 'Под ключ'
@@ -84,6 +88,14 @@ function buildIndex(): SearchEntry[] {
       href: routes.knee,
       category: 'Колено',
       keywords: [...KEYWORD_CLUSTERS.knee, ...KEYWORD_CLUSTERS.symptoms],
+    }),
+    entry({
+      id: 'page-upper-limb',
+      title: 'Хирургия верхних конечностей',
+      description: pageSeo.upperLimb.description,
+      href: routes.upperLimb,
+      category: 'Верхние конечности',
+      keywords: [...KEYWORD_CLUSTERS.upperLimb],
     }),
     entry({
       id: 'page-services',
@@ -217,12 +229,36 @@ function buildIndex(): SearchEntry[] {
     )
   }
 
+  for (const text of upperLimbIndications) {
+    items.push(
+      entry({
+        id: `ind-upper-${text}`,
+        title: text,
+        description: 'Показание · хирургия верхних конечностей',
+        href: routes.upperLimb,
+        category: 'Верхние конечности',
+      }),
+    )
+  }
+
+  for (const text of upperLimbOperations) {
+    items.push(
+      entry({
+        id: `op-upper-${text}`,
+        title: text,
+        description: 'Операция на верхней конечности',
+        href: routes.upperLimb,
+        category: 'Верхние конечности',
+      }),
+    )
+  }
+
   for (const text of consultationItems) {
     items.push(
       entry({
         id: `consult-${text}`,
         title: text,
-        description: `Входит в консультацию · ${SITE.consultationPrice} ₽`,
+        description: `Входит в консультацию · ${formatConsultationPrices()}`,
         href: routes.consultation,
         category: 'Консультация',
       }),
@@ -281,6 +317,7 @@ function buildIndex(): SearchEntry[] {
   const seoRouteMap: Record<string, string> = {
     'seo-home': routes.home,
     'seo-feet': routes.feet,
+    'seo-upper-limb': routes.upperLimb,
     'seo-knee': routes.knee,
     'seo-services': routes.services,
     'seo-consultation': routes.consultation,

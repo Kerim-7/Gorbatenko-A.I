@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from 'react'
 import { Link } from 'react-router-dom'
-import { routes, SITE } from '../data/content'
+import { formatConsultationPrices, routes, SITE } from '../data/content'
 import { Reveal } from './Reveal'
 
 type Props = {
@@ -54,8 +54,8 @@ export function Contact({ embedded = false }: Props) {
             </>
           ) : null}
           <p className="contact-lead">
-            Разберём ваш случай, снимки и план лечения. Стоимость консультации —{' '}
-            {SITE.consultationPrice}&nbsp;₽.
+            Разберём ваш случай, снимки и план лечения. Стоимость консультации:{' '}
+            {formatConsultationPrices()}.
           </p>
           <div className="phones">
             <a href={`tel:${SITE.phones.primaryTel}`}>{SITE.phones.primaryDisplay}</a>
@@ -97,7 +97,7 @@ export function Contact({ embedded = false }: Props) {
               <textarea
                 name="message"
                 rows={4}
-                placeholder="Стопа, колено, есть ли снимки…"
+                placeholder="Стопа, колено, рука, есть ли снимки…"
               />
             </label>
             <button className="btn btn-pill btn-accent" type="submit">

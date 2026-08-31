@@ -1,20 +1,20 @@
 import { Link } from 'react-router-dom'
 
-import { routes, SITE } from '../data/content'
+import { routes, SITE, CONSULTATION_PRICES } from '../data/content'
 
 import { Reveal } from './Reveal'
 
 const locations = [
   {
     city: SITE.cities[0],
-    address: 'Основной приём и операции',
-    text: 'Подберём удобное время на консультации.',
+    address: `Консультация — ${CONSULTATION_PRICES.taganrog.toLocaleString('ru-RU')} ₽`,
+    text: 'Основной приём и операции. Подберём удобное время.',
     image: '/images/image1.jpeg',
   },
   {
     city: SITE.cities[1],
-    address: 'Консультации и хирургия стоп и колена',
-    text: 'Запись по телефону или WhatsApp.',
+    address: `Консультация — ${CONSULTATION_PRICES.rostov.toLocaleString('ru-RU')} ₽`,
+    text: 'Консультации и хирургия стоп, колена и верхних конечностей.',
     image: '/images/image6.jpeg',
   },
   {

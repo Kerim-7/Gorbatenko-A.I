@@ -73,6 +73,11 @@ export function Seo({
       },
       {
         '@type': 'MedicalProcedure',
+        name: 'Хирургия верхних конечностей',
+        url: `${SITE.url}/hirurgiya-verhney-konechnosti`,
+      },
+      {
+        '@type': 'MedicalProcedure',
         name: 'Операция под ключ',
         url: `${SITE.url}/pod-kluch`,
       },

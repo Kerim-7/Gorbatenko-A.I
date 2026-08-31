@@ -159,6 +159,33 @@ const symptoms = [
   'заклинивание колена',
 ]
 
+const upperLimb = [
+  'хирургия верхних конечностей',
+  'операция на руке',
+  'операция на ключице',
+  'перелом ключицы операция',
+  'остеосинтез ключицы',
+  'разрыв бицепса операция',
+  'пластика бицепса',
+  'контрактура сустава операция',
+  'контрактура Дюпютрена',
+  'контрактура Дюпютрена операция',
+  'болезнь Дюпютрена',
+  'болезнь Нотта',
+  'стенозирующий лигаментит',
+  'синдром карпального канала',
+  'синдром карпального канала операция',
+  'операция карпального канала',
+  'туннельный синдром запястья',
+  'операция на запястье',
+  'операция на кисти',
+  'хирургия кисти',
+  'хирургия плеча',
+  'хирургия ключицы Таганрог',
+  'синдром карпального канала Ростов',
+  'контрактура Дюпютрена Таганрог',
+]
+
 const consult = [
   'консультация ортопеда',
   'консультация травматолога',
@@ -171,7 +198,10 @@ const consult = [
   'разбор МРТ колена',
   'разбор МРТ стопы',
   'консультация ортопеда цена',
-  'консультация ортопеда 2000',
+  'консультация ортопеда 4000',
+  'консультация ортопеда 5000',
+  'консультация ортопеда Таганрог',
+  'консультация ортопеда Ростов',
 ]
 
 const turnkey = [
@@ -218,7 +248,9 @@ const general = [
   'детский ортопед',
   'детский хирург ортопед',
   'реабилитолог ортопед',
-  'оперативное лечение нижних конечностей',
+  'оперативное лечение конечностей',
+  'хирургия конечностей',
+  'хирургия верхних конечностей',
   'хирургия нижних конечностей',
   'лечение деформаций стоп',
   'лечение травм колена',
@@ -236,6 +268,7 @@ export const KEYWORD_CLUSTERS = {
   geo,
   feet,
   knee,
+  upperLimb,
   symptoms,
   consult,
   turnkey,
@@ -249,6 +282,7 @@ export const keywordsAll = uniq(
   geo,
   feet,
   knee,
+  upperLimb,
   symptoms,
   consult,
   turnkey,
@@ -263,13 +297,15 @@ export const keywordsFeet = uniq(brand, geo, feet, symptoms, turnkey, prices, co
 
 export const keywordsKnee = uniq(brand, geo, knee, symptoms, turnkey, prices, consult)
 
-export const keywordsServices = uniq(brand, geo, prices, feet, knee, turnkey)
+export const keywordsUpperLimb = uniq(brand, geo, upperLimb, consult, booking)
+
+export const keywordsServices = uniq(brand, geo, prices, feet, knee, upperLimb, turnkey)
 
 export const keywordsConsultation = uniq(brand, geo, consult, booking, general, symptoms)
 
 export const keywordsTurnkey = uniq(brand, geo, turnkey, feet, knee, consult, prices)
 
-export const keywordsFaq = uniq(brand, geo, consult, turnkey, prices, feet, knee, booking, symptoms)
+export const keywordsFaq = uniq(brand, geo, consult, turnkey, prices, feet, knee, upperLimb, booking, symptoms)
 
 export const keywordsContact = uniq(brand, geo, booking, consult)
 

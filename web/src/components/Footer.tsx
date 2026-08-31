@@ -4,6 +4,14 @@ import { Logo } from './Logo'
 
 export function Footer() {
   const year = new Date().getFullYear()
+  const studioUrl = import.meta.env.VITE_STUDIO_URL as string | undefined
+
+  const studioMark = (
+    <>
+      <span className="footer-studio-kicker">Сделано и обслуживается студией</span>
+      <span className="footer-studio-name">ABDULKERIMOV</span>
+    </>
+  )
 
   return (
     <footer className="site-footer">
@@ -13,7 +21,7 @@ export function Footer() {
             <Logo light />
           </Link>
           <p>
-            Оперативное лечение нижних конечностей. Хирургия стоп и коленных суставов «под ключ»
+            Оперативное лечение конечностей. Хирургия стоп, колена и верхних конечностей «под ключ»
             у к.м.н. Горбатенко А.И.
           </p>
         </div>
@@ -49,6 +57,9 @@ export function Footer() {
               <Link to={routes.knee}>Хирургия колена</Link>
             </li>
             <li>
+              <Link to={routes.upperLimb}>Верхние конечности</Link>
+            </li>
+            <li>
               <Link to={routes.works}>Работы до и после</Link>
             </li>
             <li>
@@ -79,7 +90,7 @@ export function Footer() {
       </div>
 
       <div className="wrap footer-bottom">
-        <p>
+        <p className="footer-copy">
           © {year} Доктор {SITE.shortName}
         </p>
         <div className="footer-bottom-actions">
@@ -95,6 +106,24 @@ export function Footer() {
             {SITE.phones.primaryDisplay}
           </span>
         </div>
+        {studioUrl ? (
+          <a
+            className="footer-studio"
+            href={studioUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Сайт сделан и обслуживается студией ABDULKERIMOV"
+          >
+            {studioMark}
+          </a>
+        ) : (
+          <div
+            className="footer-studio"
+            aria-label="Сайт сделан и обслуживается студией ABDULKERIMOV"
+          >
+            {studioMark}
+          </div>
+        )}
       </div>
     </footer>
   )

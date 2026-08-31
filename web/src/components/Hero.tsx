@@ -67,10 +67,10 @@ export function Hero() {
     <section className="hero" aria-labelledby="hero-heading">
       <div className="hero-shell">
         <div className="hero-copy">
-          <h1 id="hero-heading">Оперативное лечение нижних конечностей</h1>
+          <h1 id="hero-heading">Оперативное лечение конечностей</h1>
           <p className="hero-lead">
-            Хирургия стоп и колена «под ключ» — разберём случай на консультации и предложим понятный
-            план лечения.
+            Хирургия стоп, колена и верхних конечностей «под ключ» — разберём случай на
+            консультации и предложим понятный план лечения.
           </p>
           <div className="hero-actions">
             <Link className="btn btn-pill btn-accent" to={routes.contact}>
@@ -99,7 +99,7 @@ export function Hero() {
                 if (query.trim()) setOpen(true)
               }}
               onKeyDown={onKeyDown}
-              placeholder="Консультация, стопы, колено, цены…"
+              placeholder="Консультация, стопы, колено, рука, цены…"
               aria-autocomplete="list"
               aria-controls={listId}
               aria-expanded={open && results.length > 0}
@@ -176,7 +176,7 @@ export function Hero() {
           </Link>
           <Link className="hero-feature" to={routes.services}>
             <strong>Прозрачные цены</strong>
-            <span>Открытый прайс по стопам и колену. Итог — после консультации.</span>
+            <span>Открытый прайс по стопам, колену и верхним конечностям. Итог — после консультации.</span>
             <em>Смотреть прайс</em>
           </Link>
         </div>

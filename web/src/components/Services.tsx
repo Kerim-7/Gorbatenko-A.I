@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { footPrices, kneePrices, PRICE, routes, SITE } from '../data/content'
+import { CONSULTATION_PRICES, footPrices, kneePrices, PRICE, routes, upperLimbIndications } from '../data/content'
 import { Reveal } from './Reveal'
 
 type Props = {
@@ -27,7 +27,14 @@ export function Services({ showHeading = true }: Props) {
             <h3>Консультация ортопеда</h3>
             <p>Осмотр, разбор снимков и план лечения</p>
           </div>
-          <strong>{SITE.consultationPrice.toLocaleString('ru-RU')}&nbsp;₽</strong>
+          <div className="price-consult-rates">
+            <strong>
+              Таганрог — {CONSULTATION_PRICES.taganrog.toLocaleString('ru-RU')}&nbsp;₽
+            </strong>
+            <strong>
+              Ростов-на-Дону — {CONSULTATION_PRICES.rostov.toLocaleString('ru-RU')}&nbsp;₽
+            </strong>
+          </div>
           <Link className="btn btn-pill btn-outline" to={routes.contact}>
             Записаться
           </Link>
@@ -64,6 +71,21 @@ export function Services({ showHeading = true }: Props) {
               ))}
             </ul>
             <p className="price-from">от {PRICE.kneeFrom.toLocaleString('ru-RU')}&nbsp;₽</p>
+          </Reveal>
+
+          <Reveal as="article" className="price-block">
+            <div className="price-block-head">
+              <h3>Верхние конечности</h3>
+              <Link to={routes.upperLimb}>Подробнее</Link>
+            </div>
+            <ul>
+              {upperLimbIndications.map((item) => (
+                <li key={item}>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="price-from">Стоимость — после консультации</p>
           </Reveal>
         </div>
       </div>

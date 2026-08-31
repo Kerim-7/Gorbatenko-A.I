@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { consultationItems, routes, SITE } from '../data/content'
+import { consultationItems, formatConsultationPrices, routes } from '../data/content'
 import { Reveal } from './Reveal'
 
 type Props = {
@@ -39,7 +39,7 @@ export function Consultation({ embedded = false, showImage = true }: Props) {
             ))}
           </ul>
           <Link className="btn btn-pill btn-accent" to={routes.contact}>
-            Записаться — {SITE.consultationPrice}&nbsp;₽
+            Записаться — {formatConsultationPrices()}
           </Link>
         </Reveal>
       </div>

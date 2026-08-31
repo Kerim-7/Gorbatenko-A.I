@@ -9,6 +9,7 @@ import {
   keywordsKnee,
   keywordsServices,
   keywordsTurnkey,
+  keywordsUpperLimb,
   keywordsWorks,
 } from './keywords'
 
@@ -32,17 +33,26 @@ export const SITE = {
     'ЛНР',
     'ДНР',
   ],
-  consultationPrice: 2000,
+  consultationPrices: {
+    taganrog: 4_000,
+    rostov: 5_000,
+  },
   credentials:
     'кандидат медицинских наук, доцент · травматолог, ортопед, хирург, подолог, детский хирург, реабилитолог',
 } as const
 
+export const CONSULTATION_PRICES = SITE.consultationPrices
+
+export function formatConsultationPrices(): string {
+  return `Таганрог — ${CONSULTATION_PRICES.taganrog.toLocaleString('ru-RU')} ₽, Ростов-на-Дону — ${CONSULTATION_PRICES.rostov.toLocaleString('ru-RU')} ₽`
+}
+
 export const SEO = {
   title:
-    'Хирургия стоп и колена «под ключ» — ортопед Горбатенко А.И. | Таганрог, Ростов-на-Дону',
-  titleShort: 'Доктор Горбатенко — хирургия стоп и колена',
+    'Хирургия конечностей «под ключ» — ортопед Горбатенко А.И. | Таганрог, Ростов-на-Дону',
+  titleShort: 'Доктор Горбатенко — хирургия конечностей',
   description:
-    'Операции на стопах и коленях у к.м.н. Горбатенко А.И.: Hallux valgus, плоскостопие, неврома Мортона, артроскопия, пластика ПКС, шов мениска. Хирургия «под ключ» от 30 000 ₽. Консультация 2000 ₽. Таганрог, Ростов-на-Дону, ЛНР, ДНР.',
+    'Операции на стопах, коленях и верхних конечностях у к.м.н. Горбатенко А.И.: Hallux valgus, артроскопия, ПКС, синдром карпального канала, контрактура Дюпютрена. Хирургия «под ключ» от 30 000 ₽. Консультация: Таганрог 4 000 ₽, Ростов 5 000 ₽. ЛНР, ДНР.',
   keywords: keywordsAll,
   ogImage: '/images/image1.jpeg',
   knowsAbout: [
@@ -59,7 +69,11 @@ export const SEO = {
     'шов мениска',
     'киста Бейкера',
     'операция под ключ',
-    'оперативное лечение нижних конечностей',
+    'оперативное лечение конечностей',
+    'синдром карпального канала',
+    'контрактура Дюпютрена',
+    'болезнь Нотта',
+    'хирургия верхних конечностей',
   ],
 } as const
 
@@ -148,6 +162,24 @@ export const kneeIndications = [
   'Перелом надколенника, киста мениска',
   'Синдром медиопателлярной складки',
   'Привычный вывих надколенника',
+] as const
+
+export const upperLimbIndications = [
+  'Перелом и последствия травм ключицы',
+  'Повреждение и разрыв сухожилия бицепса',
+  'Контрактура суставов и ограничение движений',
+  'Контрактура Дюпютрена',
+  'Стенозирующий лигаментит (болезнь Нотта)',
+  'Синдром карпального канала',
+] as const
+
+export const upperLimbOperations = [
+  'Остеосинтез ключицы',
+  'Пластика сухожилия бицепса',
+  'Артролиз, лечение контрактуры',
+  'Фасциэктомия при контрактуре Дюпютрена',
+  'Тенолиз при болезни Нотта',
+  'Декомпрессия при синдроме карпального канала',
 ] as const
 
 export const kneeOperations = [
@@ -293,7 +325,7 @@ export const conferencePhotos: ConferencePhoto[] = [
 ]
 
 export const PRICE = {
-  consultation: 2000,
+  consultation: CONSULTATION_PRICES.taganrog,
   footFrom: 30_000,
   kneeFrom: 40_000,
   kneeArthroscopyFrom: 30_000,
@@ -303,7 +335,7 @@ export const PRICE = {
 export const faq = [
   {
     q: 'Сколько стоит консультация?',
-    a: `Консультация доктора Горбатенко А.И. — ${SITE.consultationPrice} ₽.`,
+    a: `Консультация доктора Горбатенко А.И.: ${formatConsultationPrices()}.`,
     links: [
       { to: '/konsultaciya', label: 'Подробнее о консультации' },
       { to: '/zapis', label: 'Записаться' },
@@ -350,6 +382,11 @@ export const faq = [
     q: 'Какие операции на колене выполняете?',
     a: 'Диагностическая, санационная и оперативная артроскопия, шов мениска, пластика крестообразной связки, пластика хряща, лечение кисты Бейкера, последствий травм и другие вмешательства по показаниям.',
     links: [{ to: '/hirurgiya-kolena', label: 'Хирургия колена' }],
+  },
+  {
+    q: 'Какие операции на верхних конечностях выполняете?',
+    a: 'Ключица, бицепс, контрактуры, контрактура Дюпютрена, болезнь Нотта, синдром карпального канала и другие вмешательства по показаниям.',
+    links: [{ to: '/hirurgiya-verhney-konechnosti', label: 'Хирургия верхних конечностей' }],
   },
   {
     q: 'Сколько стоит артроскопия и пластика ПКС?',
@@ -409,6 +446,7 @@ export const routes = {
   turnkey: '/pod-kluch',
   feet: '/hirurgiya-stop',
   knee: '/hirurgiya-kolena',
+  upperLimb: '/hirurgiya-verhney-konechnosti',
   works: '/raboty',
   conferences: '/konferencii',
   faq: '/voprosy',
@@ -447,14 +485,15 @@ export const pageSeo: Record<keyof typeof routes, PageSeo> = {
     offers: [
       { name: 'Хирургия стоп от', price: 30_000 },
       { name: 'Хирургия колена от', price: 40_000 },
-      { name: 'Консультация ортопеда', price: 2_000 },
+      { name: 'Консультация в Таганроге', price: CONSULTATION_PRICES.taganrog },
+      { name: 'Консультация в Ростове-на-Дону', price: CONSULTATION_PRICES.rostov },
     ],
   },
   consultation: {
     path: '/konsultaciya',
-    title: `Консультация ортопеда ${SITE.consultationPrice} ₽ — осмотр, МРТ, плантоскопия | Горбатенко А.И.`,
+    title: `Консультация ортопеда — ${formatConsultationPrices()} | Горбатенко А.И.`,
     description:
-      'Консультация травматолога-ортопеда к.м.н. Горбатенко А.И.: анамнез, осмотр, разбор МРТ/КТ/рентгена, плантоскопия и план лечения. Запись в Таганроге и Ростове-на-Дону.',
+      'Консультация травматолога-ортопеда к.м.н. Горбатенко А.И.: анамнез, осмотр, разбор МРТ/КТ/рентгена, плантоскопия и план лечения. Таганрог 4 000 ₽, Ростов-на-Дону 5 000 ₽.',
     keywords: keywordsConsultation,
     procedure: {
       name: 'Консультация ортопеда',
@@ -462,7 +501,10 @@ export const pageSeo: Record<keyof typeof routes, PageSeo> = {
       description:
         'Осмотр, разбор снимков МРТ/КТ/РГ, плантоскопия и план оперативного или консервативного лечения.',
     },
-    offers: [{ name: 'Консультация', price: SITE.consultationPrice }],
+    offers: [
+      { name: 'Консультация в Таганроге', price: CONSULTATION_PRICES.taganrog },
+      { name: 'Консультация в Ростове-на-Дону', price: CONSULTATION_PRICES.rostov },
+    ],
   },
   turnkey: {
     path: '/pod-kluch',
@@ -497,6 +539,26 @@ export const pageSeo: Record<keyof typeof routes, PageSeo> = {
       bodyLocation: 'Foot',
     },
     offers: [{ name: 'Хирургия стоп от', price: 30_000 }],
+  },
+  upperLimb: {
+    path: '/hirurgiya-verhney-konechnosti',
+    title:
+      'Хирургия верхних конечностей: ключица, бицепс, Дюпютрен, карпальный канал | Горбатенко А.И.',
+    description:
+      'Операции на верхних конечностях: ключица, бицепс, контрактуры, контрактура Дюпютрена, болезнь Нотта, синдром карпального канала. Таганрог, Ростов-на-Дону.',
+    keywords: keywordsUpperLimb,
+    procedure: {
+      name: 'Хирургия верхних конечностей',
+      alternateName: [
+        'Операция на руке',
+        'Синдром карпального канала операция',
+        'Контрактура Дюпютрена операция',
+        'Болезнь Нотта операция',
+      ],
+      description:
+        'Оперативное лечение патологии верхних конечностей: ключица, бицепс, контрактуры, Дюпютрен, Нотта, карпальный канал.',
+      bodyLocation: 'Upper limb',
+    },
   },
   knee: {
     path: '/hirurgiya-kolena',
@@ -546,7 +608,7 @@ export const pageSeo: Record<keyof typeof routes, PageSeo> = {
   contact: {
     path: '/zapis',
     title: 'Запись к ортопеду Горбатенко — Таганрог, Ростов-на-Дону, WhatsApp',
-    description: `Запись на консультацию ортопеда (${SITE.consultationPrice} ₽) по телефону или WhatsApp. Операции на стопах и коленях. Таганрог, Ростов-на-Дону, ЛНР, ДНР.`,
+    description: `Запись на консультацию ортопеда (${formatConsultationPrices()}) по телефону или WhatsApp. Операции на стопах, коленях и верхних конечностях. Таганрог, Ростов-на-Дону, ЛНР, ДНР.`,
     keywords: keywordsContact,
   },
 }

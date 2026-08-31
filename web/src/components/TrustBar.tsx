@@ -1,4 +1,4 @@
-import { SITE } from '../data/content'
+import { formatConsultationPrices } from '../data/content'
 
 export function TrustBar() {
   return (
@@ -21,8 +21,8 @@ export function TrustBar() {
             <p>операции на стопе у взрослых и детей</p>
           </article>
           <article>
-            <h3>{SITE.consultationPrice} ₽</h3>
-            <p>консультация с разбором снимков и планом</p>
+            <h3>4 000–5 000 ₽</h3>
+            <p>консультация: {formatConsultationPrices()}</p>
           </article>
         </div>
       </div>

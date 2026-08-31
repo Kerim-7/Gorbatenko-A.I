@@ -7,7 +7,7 @@ const article: SeoArticleData = seoArticles.home
 
 const leadRest = article.lead.startsWith(SITE.name)
   ? article.lead.slice(SITE.name.length)
-  : ` — ${SITE.credentials}. Оперативное лечение нижних конечностей «под ключ»: хирургия стоп, артроскопия колена, пластика ПКС.`
+  : ` — ${SITE.credentials}. Оперативное лечение конечностей «под ключ»: хирургия стоп, артроскопия колена, верхние конечности.`
 
 export function CareGuide() {
   return (

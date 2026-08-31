@@ -1,13 +1,33 @@
+import { useEffect, useState } from 'react'
 import { SITE } from '../data/content'
 
 export function WhatsAppFloat() {
+  const [hidden, setHidden] = useState(false)
+
+  useEffect(() => {
+    const footer = document.querySelector('.site-footer')
+    if (!footer) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setHidden(entry.isIntersecting)
+      },
+      { threshold: 0 },
+    )
+
+    observer.observe(footer)
+    return () => observer.disconnect()
+  }, [])
+
   return (
     <a
-      className="wa-float"
+      className={hidden ? 'wa-float is-hidden' : 'wa-float'}
       href={`https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent('Здравствуйте! Хочу записаться на консультацию.')}`}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Написать в WhatsApp"
+      aria-hidden={hidden}
+      tabIndex={hidden ? -1 : undefined}
     >
       <svg viewBox="0 0 24 24" aria-hidden="true">
         <path

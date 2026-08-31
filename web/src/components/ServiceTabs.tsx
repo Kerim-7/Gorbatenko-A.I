@@ -1,18 +1,18 @@
 import { Link } from 'react-router-dom'
 import {
-  footIndications,
   footOperations,
   kneeOperations,
   routes,
+  upperLimbIndications,
 } from '../data/content'
 import { Reveal } from './Reveal'
 
 const columns = [
   {
-    title: 'Заболевания',
-    items: footIndications.slice(0, 4),
-    moreTo: routes.feet,
-    image: '/images/image13.jpeg',
+    title: 'Верхние конечности',
+    items: upperLimbIndications,
+    moreTo: routes.upperLimb,
+    image: '/images/image18.jpeg',
   },
   {
     title: 'Операции на стопе',
@@ -45,7 +45,7 @@ export function ServiceTabs() {
       <div className="wrap">
         <Reveal className="section-head service-tabs-head">
           <h2 id="services-tabs-heading">Услуги</h2>
-          <p>От диагностики и показаний до операций на стопе и коленном суставе</p>
+          <p>От диагностики и показаний до операций на стопе, колене и верхних конечностях</p>
         </Reveal>
 
         <div className="service-columns">

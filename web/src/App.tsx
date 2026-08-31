@@ -11,6 +11,7 @@ import { KneePage } from './pages/KneePage'
 import { NotFoundPage } from './pages/NotFoundPage'
 import { ServicesPage } from './pages/ServicesPage'
 import { TurnkeyPage } from './pages/TurnkeyPage'
+import { UpperLimbPage } from './pages/UpperLimbPage'
 import { WorksPage } from './pages/WorksPage'
 
 export default function App() {
@@ -25,6 +26,7 @@ export default function App() {
             <Route path="pod-kluch" element={<TurnkeyPage />} />
             <Route path="hirurgiya-stop" element={<FeetPage />} />
             <Route path="hirurgiya-kolena" element={<KneePage />} />
+            <Route path="hirurgiya-verhney-konechnosti" element={<UpperLimbPage />} />
             <Route path="raboty" element={<WorksPage />} />
             <Route path="konferencii" element={<ConferencesPage />} />
             <Route path="voprosy" element={<FaqPage />} />

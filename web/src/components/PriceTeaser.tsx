@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { PRICE, routes } from '../data/content'
+import { formatConsultationPrices, PRICE, routes } from '../data/content'
 import { Reveal } from './Reveal'
 
 export function PriceTeaser() {
@@ -10,8 +10,8 @@ export function PriceTeaser() {
           <h2 id="price-teaser-heading">Прозрачные цены</h2>
           <p>
             Стопы — от {PRICE.footFrom.toLocaleString('ru-RU')}&nbsp;₽ · колено — от{' '}
-            {PRICE.kneeFrom.toLocaleString('ru-RU')}&nbsp;₽ · консультация — {PRICE.consultation}
-            &nbsp;₽
+            {PRICE.kneeFrom.toLocaleString('ru-RU')}&nbsp;₽ · консультация —{' '}
+            {formatConsultationPrices()}
           </p>
         </Reveal>
         <Reveal>

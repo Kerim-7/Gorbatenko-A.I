@@ -7,7 +7,7 @@ import {
 import { PageHero } from '../components/PageHero'
 import { Seo } from '../components/Seo'
 import { SeoArticle } from '../components/SeoArticle'
-import { pageSeo, routes, SITE } from '../data/content'
+import { formatConsultationPrices, pageSeo, routes } from '../data/content'
 import { seoArticles } from '../data/seoArticles'
 
 export function ConsultationPage() {
@@ -17,7 +17,7 @@ export function ConsultationPage() {
       <PageHero
         compact
         title="Консультация"
-        lead={`Осмотр, разбор снимков и план лечения. Стоимость — ${SITE.consultationPrice} ₽.`}
+        lead={`Осмотр, разбор снимков и план лечения. ${formatConsultationPrices()}.`}
         primaryTo={routes.contact}
         primaryLabel="Записаться"
         secondaryTo={routes.turnkey}

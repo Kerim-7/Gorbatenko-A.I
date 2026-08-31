@@ -35,6 +35,8 @@
   /* Welbeck: Newsreader (display) + Avenir (UI/body) */
   --font: avenir, "Avenir Next", "Nunito Sans", Helvetica, Arial, sans-serif;
   --display: Newsreader, Georgia, "Times New Roman", serif;
+  --studio-kicker: Inter, "Nunito Sans", Helvetica, Arial, sans-serif;
+  --studio-display: "Bebas Neue", Inter, sans-serif;
   --text-xs: 0.875rem; /* 14px — buttons */
   --text-base: 1rem; /* 16px — body / nav */
   --text-lead: 1.25rem; /* 20px — section leads (Newsreader) */
@@ -1064,6 +1066,16 @@ body.nav-open .wa-float {
   font-weight: 400;
 }
 
+.price-consult-rates {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.price-consult-rates strong {
+  font-size: var(--h3);
+}
+
 .price-consult .btn-outline {
   border-color: rgba(255, 255, 255, 0.4);
   color: #fff;
@@ -1081,7 +1093,7 @@ body.nav-open .wa-float {
 
 @media (min-width: 800px) {
   .price-columns {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.75rem;
   }
 }
@@ -1827,12 +1839,18 @@ body.nav-open .wa-float {
 }
 
 .footer-bottom {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  gap: 1rem 1.75rem;
   align-items: center;
   padding-top: 1.6rem;
+}
+
+.footer-copy {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.82);
 }
 
 .footer-bottom p {
@@ -1842,12 +1860,54 @@ body.nav-open .wa-float {
   color: rgba(255, 255, 255, 0.82);
 }
 
+.footer-studio {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.15rem;
+  justify-self: end;
+  min-width: min(100%, 16rem);
+  padding: 0.85rem 1.1rem;
+  text-align: right;
+  text-decoration: none;
+  color: inherit;
+  font-family: var(--studio-kicker);
+  background: #fefbf6;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.footer-studio:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.22);
+}
+
+.footer-studio-kicker {
+  font-family: var(--studio-kicker);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(24, 36, 52, 0.52);
+}
+
+.footer-studio-name {
+  font-family: var(--studio-display);
+  font-size: clamp(1.75rem, 2.8vw, 2.15rem);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  line-height: 0.95;
+  color: #101820;
+}
+
 .footer-bottom-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
-  margin-left: auto;
+  margin-left: 0;
   align-items: center;
+  justify-self: end;
 }
 
 .footer-primary-align {
@@ -1889,7 +1949,17 @@ body.nav-open .wa-float {
   background: #25d366;
   color: #fff;
   box-shadow: 0 12px 28px rgba(11, 31, 58, 0.28);
-  transition: transform 0.2s ease;
+  transition:
+    opacity 0.25s ease,
+    visibility 0.25s ease,
+    transform 0.25s ease;
+}
+
+.wa-float.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: scale(0.88);
 }
 
 .wa-float:hover {
@@ -3785,13 +3855,18 @@ body.nav-open .wa-float {
   }
 
   .footer-bottom {
-    flex-direction: column;
-    align-items: flex-start;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
   }
 
   .footer-bottom-actions {
-    margin-left: 0;
+    justify-self: stretch;
     width: 100%;
+  }
+
+  .footer-studio {
+    justify-self: end;
+    width: min(100%, 18rem);
   }
 
   .footer-primary-align {

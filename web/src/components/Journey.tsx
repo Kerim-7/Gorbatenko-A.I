@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { routes, SITE } from '../data/content'
+import { formatConsultationPrices, routes } from '../data/content'
 import { Reveal } from './Reveal'
 
 export function Journey() {
@@ -14,7 +14,7 @@ export function Journey() {
           <Reveal as="article" className="journey-card">
             <h3>Консультация</h3>
             <p>Анамнез, осмотр, снимки МРТ/КТ, плантоскопия и совместное решение.</p>
-            <Link to={routes.consultation}>Что входит · {SITE.consultationPrice}&nbsp;₽</Link>
+            <Link to={routes.consultation}>Что входит · {formatConsultationPrices()}</Link>
           </Reveal>
           <Reveal as="article" className="journey-card">
             <h3>Операция «под ключ»</h3>
