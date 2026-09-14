@@ -32,6 +32,7 @@ export type SearchCategory =
   | 'Вопросы'
   | 'Работы'
   | 'Конференции'
+  | 'Патенты'
   | 'Запись'
 
 export type SearchEntry = {
