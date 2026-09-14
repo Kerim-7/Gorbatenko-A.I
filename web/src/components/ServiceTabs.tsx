@@ -1,28 +1,29 @@
 import { Link } from 'react-router-dom'
 import {
   footOperations,
-  kneeOperations,
+  kneeIndications,
   routes,
   upperLimbIndications,
 } from '../data/content'
+import { topicHrefByIndication } from '../data/serviceTopics'
 import { Reveal } from './Reveal'
 
 const columns = [
   {
-    title: 'Верхние конечности',
-    items: upperLimbIndications,
+    title: 'Плечевой сустав',
+    items: upperLimbIndications.slice(0, 6),
     moreTo: routes.upperLimb,
-    image: '/images/image18.jpeg',
+    image: '/images/rotator-cuff-repair.png',
   },
   {
     title: 'Операции на стопе',
     items: footOperations.slice(0, 4),
     moreTo: routes.feet,
-    image: '/images/image6.jpeg',
+    image: '/images/image9.jpeg',
   },
   {
-    title: 'Операции на колене',
-    items: kneeOperations.slice(0, 4),
+    title: 'Коленный сустав',
+    items: kneeIndications.slice(0, 6),
     moreTo: routes.knee,
     image: '/images/image18.jpeg',
   },
@@ -45,7 +46,7 @@ export function ServiceTabs() {
       <div className="wrap">
         <Reveal className="section-head service-tabs-head">
           <h2 id="services-tabs-heading">Услуги</h2>
-          <p>От диагностики и показаний до операций на стопе, колене и верхних конечностях</p>
+          <p>Артроскопия и хирургия плеча, стопы и коленного сустава</p>
         </Reveal>
 
         <div className="service-columns">
@@ -53,7 +54,7 @@ export function ServiceTabs() {
             <Reveal key={column.title}>
               <article className="service-column">
                 <div className="service-column-visual">
-                  <img src={column.image} alt="" loading="lazy" />
+                  <img src={column.image} alt={column.title} loading="lazy" />
                   <div className="service-column-wave" aria-hidden="true">
                     <svg viewBox="0 0 343 133" preserveAspectRatio="none">
                       <path d="M343 132.062H0V104.822C34.9306 122.132 74.2839 131.863 115.91 131.863C213.142 131.863 297.973 78.7725 343 0V132.062Z" />
@@ -66,7 +67,7 @@ export function ServiceTabs() {
                   <ul>
                     {column.items.map((item) => (
                       <li key={item}>
-                        <Link to={column.moreTo}>{item}</Link>
+                        <Link to={topicHrefByIndication(item) ?? column.moreTo}>{item}</Link>
                       </li>
                     ))}
                   </ul>

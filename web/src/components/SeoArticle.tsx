@@ -4,21 +4,35 @@ import { Reveal } from './Reveal'
 
 type Props = {
   article: SeoArticleData
+  /** Выключить появление с opacity:0 — контент сразу виден */
+  animate?: boolean
+  /** Одна колонка, как статья, а не сетка карточек */
+  layout?: 'cards' | 'article'
 }
 
-export function SeoArticle({ article }: Props) {
+export function SeoArticle({ article, animate = true, layout = 'cards' }: Props) {
+  const Head = animate ? Reveal : 'div'
+  const Block = animate ? Reveal : 'article'
+  const sectionClass =
+    layout === 'article' ? 'section seo-article seo-article-flow' : 'section seo-article'
+
   return (
-    <section className="section seo-article" id={article.id} aria-labelledby={`${article.id}-heading`}>
+    <section className={sectionClass} id={article.id} aria-labelledby={`${article.id}-heading`}>
       <div className="wrap seo-article-inner">
-        <Reveal className="section-head seo-article-head">
+        <Head className="section-head seo-article-head">
           <h2 id={`${article.id}-heading`}>{article.title}</h2>
           <p className="seo-article-lead">{article.lead}</p>
-        </Reveal>
+        </Head>
 
         <div className="seo-blocks">
           {article.blocks.map((block) => (
-            <Reveal className="seo-block" key={block.heading}>
+            <Block className="seo-block" key={block.heading}>
               <h3>{block.heading}</h3>
+              {block.image ? (
+                <figure className="seo-block-figure">
+                  <img src={block.image.src} alt={block.image.alt} loading="lazy" />
+                </figure>
+              ) : null}
               {block.paragraphs.map((p) => (
                 <p key={p.slice(0, 48)}>{p}</p>
               ))}
@@ -38,7 +52,7 @@ export function SeoArticle({ article }: Props) {
                   ))}
                 </nav>
               ) : null}
-            </Reveal>
+            </Block>
           ))}
         </div>
       </div>

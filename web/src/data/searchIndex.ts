@@ -1,5 +1,6 @@
 import { KEYWORD_CLUSTERS } from './keywords'
 import { seoArticles, type SeoBlock } from './seoArticles'
+import { serviceTopicPath, serviceTopics } from './serviceTopics'
 import { workCases } from './works'
 import {
   SITE,
@@ -138,6 +139,14 @@ function buildIndex(): SearchEntry[] {
       keywords: ['ортобиология', 'РАХСГС', 'Артромост', 'съезд'],
     }),
     entry({
+      id: 'page-patents',
+      title: 'Патенты',
+      description: pageSeo.patents.description,
+      href: routes.patents,
+      category: 'Патенты',
+      keywords: ['патент', 'изобретения', 'ортопедия'],
+    }),
+    entry({
       id: 'page-faq',
       title: 'Частые вопросы',
       description: pageSeo.faq.description,
@@ -206,12 +215,13 @@ function buildIndex(): SearchEntry[] {
   }
 
   for (const text of kneeIndications) {
+    const topic = serviceTopics.find((item) => item.indication === text)
     items.push(
       entry({
         id: `ind-knee-${text}`,
         title: text,
         description: 'Показание · хирургия колена',
-        href: routes.knee,
+        href: topic ? serviceTopicPath(topic) : routes.knee,
         category: 'Колено',
       }),
     )
@@ -230,13 +240,27 @@ function buildIndex(): SearchEntry[] {
   }
 
   for (const text of upperLimbIndications) {
+    const topic = serviceTopics.find((item) => item.indication === text)
     items.push(
       entry({
         id: `ind-upper-${text}`,
         title: text,
-        description: 'Показание · хирургия верхних конечностей',
-        href: routes.upperLimb,
+        description: 'Показание · хирургия плеча и верхних конечностей',
+        href: topic ? serviceTopicPath(topic) : routes.upperLimb,
         category: 'Верхние конечности',
+      }),
+    )
+  }
+
+  for (const topic of serviceTopics) {
+    items.push(
+      entry({
+        id: `topic-${topic.slug}`,
+        title: topic.title,
+        description: topic.lead,
+        href: serviceTopicPath(topic),
+        category: topic.parent === 'knee' ? 'Колено' : 'Верхние конечности',
+        keywords: [topic.subtitle ?? '', topic.description],
       }),
     )
   }
@@ -246,7 +270,7 @@ function buildIndex(): SearchEntry[] {
       entry({
         id: `op-upper-${text}`,
         title: text,
-        description: 'Операция на верхней конечности',
+        description: 'Операция на плече / верхней конечности',
         href: routes.upperLimb,
         category: 'Верхние конечности',
       }),

@@ -57,13 +57,16 @@ export function Footer() {
               <Link to={routes.knee}>Хирургия колена</Link>
             </li>
             <li>
-              <Link to={routes.upperLimb}>Верхние конечности</Link>
+              <Link to={routes.upperLimb}>Плечо и рука</Link>
             </li>
             <li>
               <Link to={routes.works}>Работы до и после</Link>
             </li>
             <li>
               <Link to={routes.conferences}>Конференции</Link>
+            </li>
+            <li>
+              <Link to={routes.patents}>Патенты</Link>
             </li>
           </ul>
         </div>

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { kneeIndications, kneeOperations, PRICE, routes } from '../data/content'
+import { topicHrefByIndication } from '../data/serviceTopics'
 import { Reveal } from './Reveal'
 
 type Props = {
@@ -38,9 +39,14 @@ export function KneeSurgery({ embedded = false }: Props) {
           <div>
             <h3 className="inline-h3">Когда нужна операция</h3>
             <ul className="dense-list">
-              {kneeIndications.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
+              {kneeIndications.map((item) => {
+                const href = topicHrefByIndication(item)
+                return (
+                  <li key={item}>
+                    {href ? <Link to={href}>{item}</Link> : item}
+                  </li>
+                )
+              })}
             </ul>
             <p className="sibling-link">
               Также принимаю по <Link to={routes.feet}>хирургии стоп</Link>

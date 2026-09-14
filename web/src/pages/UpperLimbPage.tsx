@@ -16,8 +16,8 @@ export function UpperLimbPage() {
       <Seo page={pageSeo.upperLimb} includeFaqSchema />
       <PageHero
         compact
-        title="Хирургия верхних конечностей"
-        lead={`Ключица, бицепс, контрактуры, Дюпютрен, Нотта, карпальный канал. Консультация: ${formatConsultationPrices()}.`}
+        title="Хирургия плеча и верхних конечностей"
+        lead={`Вывих плеча, вращательная манжета, АКС, импинджмент; также кисть и запястье. Консультация: ${formatConsultationPrices()}.`}
         primaryTo={routes.contact}
         primaryLabel="Записаться"
         secondaryTo={routes.consultation}

@@ -23,8 +23,10 @@ export function Reveal({ children, className = '', as = 'div', ...rest }: Props)
     const node = ref.current
     if (!node) return
 
+    const show = () => node.classList.add('in')
+
     if (!('IntersectionObserver' in window)) {
-      node.classList.add('in')
+      show()
       return
     }
 
@@ -37,11 +39,21 @@ export function Reveal({ children, className = '', as = 'div', ...rest }: Props)
           }
         })
       },
-      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' },
+      { threshold: 0.05, rootMargin: '0px 0px 0px 0px' },
     )
 
     io.observe(node)
-    return () => io.disconnect()
+
+    const rect = node.getBoundingClientRect()
+    const inView = rect.top < window.innerHeight && rect.bottom > 0
+    if (inView) show()
+
+    const fallback = window.setTimeout(show, 1200)
+
+    return () => {
+      io.disconnect()
+      window.clearTimeout(fallback)
+    }
   }, [])
 
   return createElement(

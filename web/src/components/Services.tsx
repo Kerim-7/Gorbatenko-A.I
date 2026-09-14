@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { CONSULTATION_PRICES, footPrices, kneePrices, PRICE, routes, upperLimbIndications } from '../data/content'
+import { topicHrefByIndication } from '../data/serviceTopics'
 import { Reveal } from './Reveal'
 
 type Props = {
@@ -75,15 +76,24 @@ export function Services({ showHeading = true }: Props) {
 
           <Reveal as="article" className="price-block">
             <div className="price-block-head">
-              <h3>Верхние конечности</h3>
+              <h3>Плечо и верхние конечности</h3>
               <Link to={routes.upperLimb}>Подробнее</Link>
             </div>
             <ul>
-              {upperLimbIndications.map((item) => (
-                <li key={item}>
-                  <span>{item}</span>
-                </li>
-              ))}
+              {upperLimbIndications.slice(0, 7).map((item) => {
+                const href = topicHrefByIndication(item)
+                return (
+                  <li key={item}>
+                    {href ? (
+                      <Link to={href}>
+                        <span>{item}</span>
+                      </Link>
+                    ) : (
+                      <span>{item}</span>
+                    )}
+                  </li>
+                )
+              })}
             </ul>
             <p className="price-from">Стоимость — после консультации</p>
           </Reveal>

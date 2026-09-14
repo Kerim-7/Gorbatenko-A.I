@@ -9,19 +9,22 @@ const locations = [
     city: SITE.cities[0],
     address: `Консультация — ${CONSULTATION_PRICES.taganrog.toLocaleString('ru-RU')} ₽`,
     text: 'Основной приём и операции. Подберём удобное время.',
-    image: '/images/image1.jpeg',
+    image: '/images/location-taganrog.jpg',
+    alt: 'Таганрог — вид на город и порт',
   },
   {
     city: SITE.cities[1],
     address: `Консультация — ${CONSULTATION_PRICES.rostov.toLocaleString('ru-RU')} ₽`,
     text: 'Консультации и хирургия стоп, колена и верхних конечностей.',
-    image: '/images/image6.jpeg',
+    image: '/images/location-rostov.jpg',
+    alt: 'Ростов-на-Дону — Большая Садовая',
   },
   {
     city: `${SITE.cities[3]}, ${SITE.cities[4]}`,
     address: 'Приём и операции по направлению',
     text: 'Точное место уточняем при записи.',
-    image: '/images/image9.jpeg',
+    image: '/images/location-donetsk.jpg',
+    alt: 'Донецк — набережная',
     badge: 'По записи',
   },
 ] as const
@@ -50,7 +53,7 @@ export function Locations() {
             <Reveal className="locations-grid-item" key={item.city}>
               <Link className="location-card" to={routes.contact}>
                 <div className="location-card-media">
-                  <img src={item.image} alt="" loading="lazy" />
+                  <img src={item.image} alt={item.alt} loading="lazy" />
                   {'badge' in item && item.badge ? (
                     <span className="location-card-badge">{item.badge}</span>
                   ) : null}
